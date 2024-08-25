@@ -1,0 +1,39 @@
+<!-- <core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+ 
+    <ViewSettingsDialog confirm="handleSortDialogConfirm">
+        <core:FragmentDefinition>
+            <core:for
+                items="{dialogModel>/}"
+                var="item">
+                <sortItems>
+                    <ViewSettingsItem
+                        text="{item>Text}"
+                        key="{item>Key}"
+                        selected="{item>Selected}" />
+                </sortItems>
+            </core:for>
+        </core:FragmentDefinition>
+    </ViewSettingsDialog>
+
+</core:FragmentDefinition> -->
+
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+
+    <core:FragmentDefinition
+        xmlns="sap.m"
+        xmlns:core="sap.ui.core">
+
+        <ViewSettingsDialog
+            id="viewSettingsDialog"
+            confirm="handleSortDialogConfirm">
+            <!-- Items will be added dynamically in the controller -->
+        </ViewSettingsDialog>
+
+    </core:FragmentDefinition>
+
+</core:FragmentDefinition>

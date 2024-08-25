@@ -1,0 +1,8 @@
+<mvc:View controllerName="moneym.controller.Home"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page_id_Home" title="Home">
+        <content >
+        </content>
+    </Page>
+</mvc:View>

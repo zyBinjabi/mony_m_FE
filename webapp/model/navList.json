@@ -1,0 +1,24 @@
+{
+  "navigation": [
+    {
+      "title": "Home",
+      "icon": "sap-icon://e-care",
+      "key": "RouteHome"
+    },
+    {
+      "title": "TestPage",
+      "icon": "sap-icon://e-care",
+      "key": "RouteTestPage"
+    },
+    {
+      "title": "UploadFiles",
+      "icon": "sap-icon://e-care",
+      "key": "RouteUploadFiles"
+    },
+    {
+      "title": "OperTran",
+      "icon": "sap-icon://e-care",
+      "key": "RouteOperTran"
+    }
+  ]
+}

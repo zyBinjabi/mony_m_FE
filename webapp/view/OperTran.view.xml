@@ -1,0 +1,146 @@
+<mvc:View
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:table="sap.ui.table"
+    controllerName="moneym.controller.OperTran"
+    xmlns:core="sap.ui.core">
+
+    <Page
+        showHeader="false"
+        showNavButton="false">
+        <Page
+            id="sideContentContainer"
+            showHeader="false"
+            showNavButton="false">
+            <l:DynamicSideContent
+                id="DynamicSideContent"
+                class="sapUiDSCExplored sapUiContentPadding"
+                sideContentFallDown="BelowM"
+                containerQuery="true"
+                breakpointChanged="handleBreakpointChanged">
+                <Title level="H1" text="Main content" />
+                <table:Table
+                    rows="{mainTableModel>/}"
+                    selectionMode="MultiToggle"
+                    paste="onPaste"
+                    ariaLabelledBy="title"
+                    id="mainTableIdOperTran">
+                    <table:extension>
+                        <OverflowToolbar style="Clear">
+                            <Title text="Report" />
+                            <ToolbarSpacer />
+                            <Button
+                                tooltip="Sort"
+                                icon="sap-icon://sort"
+                                press="handleSortButtonPressed"
+                            />
+                            <Button
+                                tooltip="Filter"
+                                icon="sap-icon://filter"
+                                press="handleFilterButtonPressed"
+                            />
+                            <Button
+                                tooltip="Group"
+                                icon="sap-icon://group-2"
+                                press="handleGroupButtonPressed"
+                            />
+
+                            <SearchField
+                                id="searchField"
+                                width="20%"
+                                placeholder="search"
+                                search="onSearch"
+                            />
+                        </OverflowToolbar>
+                    </table:extension>
+                    <table:columns>
+                        <table:Column width="40rem">
+                            <Label text="Product Name" />
+                            <table:template>
+                                <Text text="{mainTableModel>OperTran}" wrapping="false" />
+                            </table:template>
+                        </table:Column>
+                    </table:columns>
+                </table:Table>
+
+                <l:sideContent>
+                    <Title level="H1" text="Side content" />
+                    <form:Form id="FormChange354"
+                        editable="true">
+                        <form:title>
+                            <core:Title text="Address" />
+                        </form:title>
+                        <form:layout>
+                            <form:ResponsiveGridLayout
+                                labelSpanXL="3"
+                                labelSpanL="3"
+                                labelSpanM="3"
+                                labelSpanS="12"
+                                adjustLabelSpan="false"
+                                emptySpanXL="4"
+                                emptySpanL="4"
+                                emptySpanM="4"
+                                emptySpanS="0"
+                                columnsXL="1"
+                                columnsL="1"
+                                columnsM="1"
+                                singleContainerFullSize="false" />
+                        </form:layout>
+                        <form:formContainers>
+                            <form:FormContainer>
+                                <form:formElements>
+                                    <form:FormElement label="Name">
+                                        <form:fields>
+                                            <Input value="{SupplierName}" id="name" />
+                                        </form:fields>
+                                    </form:FormElement>
+                                    <form:FormElement label="Street">
+                                        <form:fields>
+                                            <Input value="{Street}" />
+                                            <Input value="{HouseNumber}">
+                                                <layoutData>
+                                                    <l:GridData span="XL1 L2 M2 S4" />
+                                                </layoutData>
+                                            </Input>
+                                        </form:fields>
+                                    </form:FormElement>
+                                    <form:FormElement label="ZIP Code/City">
+                                        <form:fields>
+                                            <Input value="{ZIPCode}">
+                                                <layoutData>
+                                                    <l:GridData span="XL1 L2 M2 S4" />
+                                                </layoutData>
+                                            </Input>
+                                            <Input value="{City}" />
+                                        </form:fields>
+                                    </form:FormElement>
+                                    <form:FormElement label="Country">
+                                        <form:fields>
+                                            <Select id="country" selectedKey="{Country}">
+                                                <items>
+                                                    <core:Item text="England" key="England" />
+                                                    <core:Item text="Germany" key="Germany" />
+                                                    <core:Item text="USA" key="USA" />
+                                                </items>
+                                            </Select>
+                                        </form:fields>
+                                    </form:FormElement>
+                                </form:formElements>
+                            </form:FormContainer>
+                        </form:formContainers>
+                    </form:Form>
+                </l:sideContent>
+            </l:DynamicSideContent>
+        </Page>
+        <footer>
+            <Toolbar>
+                <Button text="Toggle" type="Accept" press="handleToggleClick" id="toggleButton" />
+                <Slider id='DSCWidthSlider' value="100" liveChange="handleSliderChange" />
+                <Text id='DSCWidthHintText' text="Best view in full screen mode"
+                    visible="getVisible()" />
+            </Toolbar>
+        </footer>
+    </Page>
+</mvc:View>
